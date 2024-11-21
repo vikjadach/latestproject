@@ -1,5 +1,4 @@
-﻿
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="latestproject.MainPage"
@@ -8,41 +7,41 @@
 
    <Grid>
       <HorizontalStackLayout x:Name="primeiraimg">
-         <Image Source="ceu.png"
+         <Image Source="sol.png"
                 Aspect="Fill"/>
 
-         <Image Source="ceu.png"
+         <Image Source="sol.png"
                 Aspect="Fill"/>
 
-         <Image Source="ceu.png"
+         <Image Source="sol.png"
                 Aspect="Fill"/>
 
       </HorizontalStackLayout>
 
       <HorizontalStackLayout x:Name="segundaimg">
-         <Image Source="fundo.png"
+         <Image Source="fundolaranja.png"
                 Aspect="Fill"/>
 
-         <Image Source="fundo.png"
+         <Image Source="fundolaranja.png"
                 Aspect="Fill"/>
 
-         <Image Source="fundo.png"
+         <Image Source="fundolaranja.png"
                 Aspect="Fill"/>
 
       </HorizontalStackLayout>
 
       <HorizontalStackLayout x:Name="terceiraimg">
-         <Image Source="frente.png"    
+         <Image Source="montanhas.png"    
                 Margin="0,80,0,0"
                 Aspect="Fill"
                 HeightRequest="1000"/>
 
-         <Image Source="frente.png"            
+         <Image Source="montanhas.png"            
                 Margin="0,80,30,0"
                 Aspect="Fill"
                 HeightRequest="1000"/>
 
-         <Image Source="frente.png"               
+         <Image Source="montanhas.png"               
                 Margin="0,80,0,0"
                 Aspect="Fill"
                 HeightRequest="1000"/>
@@ -51,22 +50,22 @@
 
 
       <HorizontalStackLayout x:Name="quartaimg">
-         <Image Source="chao.png"
+         <Image Source="chaolaranja.png"
                 Aspect="Fill"
                 VerticalOptions="End"
                 HeightRequest="100"/>
-         <Image Source="chao.png"
+         <Image Source="chaolaranja.png"
                 Aspect="Fill"
                 VerticalOptions="End"
                 HeightRequest="100"/>
-         <Image Source="chao.png"
+         <Image Source="chaolaranja.png"
                 Aspect="Fill"
                 VerticalOptions="End"
                 HeightRequest="100"/>
       </HorizontalStackLayout>
 
-      <Image x:Name="lobo"
-             Source="lobo01.png"
+      <Image x:Name="raposinha"
+             Source="raposa.png"
              HeightRequest="200"
              WidthRequest="200"
              VerticalOptions="End"
@@ -74,4 +73,3 @@
              Margin="0,0,0,55"/>
    </Grid>
 </ContentPage>
-

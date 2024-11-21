@@ -20,8 +20,8 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
-		player = new Player(lobo);
-		player.Run();
+		//player = new Player(raposinha);
+		//player.Run();
 	}
 
 
@@ -87,7 +87,7 @@ public partial class MainPage : ContentPage
 		{
 			GerenciaCenarios();
 			await Task.Delay(tempoEntreFrame);
-			Player.Desenha;
+			//Player.Desenha;
 		}
 	}
     protected override void OnAppearing()
