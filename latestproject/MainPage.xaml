@@ -53,9 +53,8 @@
                 VerticalOptions="Center"/>
       </HorizontalStackLayout>
 
- <ffimageloading:CachedImageView x:Name="persona"
-                                 CacheType ="All"
-                                 CacheDuration="365"
+                            <Image              
+                               
                                  Source="saitama01.png"
                                  HeightRequest="250"
                                  VerticalOptions="End"
