@@ -5,71 +5,63 @@
              Shell.NavBarIsVisible="false">
 
 
-   <Grid>
-      <HorizontalStackLayout x:Name="primeiraimg">
-         <Image Source="sol.png"
-                Aspect="Fill"/>
+<Grid>
+    <Grid.GestureRecognizers>
+                     <TapGestureRecognizer Tapped="OnGridTapped"/>
+     </Grid.GestureRecognizers>
 
-         <Image Source="sol.png"
+      <HorizontalStackLayout x:Name="HsLayer1">
+         <Image Source="ceu.png"
                 Aspect="Fill"/>
-
-         <Image Source="sol.png"
+         <Image Source="ceu.png"
                 Aspect="Fill"/>
-
+         <Image Source="ceu.png"
+                Aspect="Fill"/>
       </HorizontalStackLayout>
 
-      <HorizontalStackLayout x:Name="segundaimg">
-         <Image Source="fundolaranja.png"
+      <HorizontalStackLayout x:Name="HsLayer2">
+         <Image Source="momt.png"
+                Aspect="Fill"/> 
+         <Image Source="momt.png"
                 Aspect="Fill"/>
-
-         <Image Source="fundolaranja.png"
+         <Image Source="momt.png"
                 Aspect="Fill"/>
-
-         <Image Source="fundolaranja.png"
-                Aspect="Fill"/>
-
       </HorizontalStackLayout>
 
-      <HorizontalStackLayout x:Name="terceiraimg">
-         <Image Source="montanhas.png"    
+      <HorizontalStackLayout x:Name="HsLayer3">
+         <Image Source="aro.png"    
                 Margin="0,80,0,0"
-                Aspect="Fill"
-                HeightRequest="1000"/>
-
-         <Image Source="montanhas.png"            
+                Aspect="Fill"/>
+         <Image Source="aro.png"            
                 Margin="0,80,30,0"
-                Aspect="Fill"
-                HeightRequest="1000"/>
-
-         <Image Source="montanhas.png"               
+                Aspect="Fill"/>
+         <Image Source="aro.png"               
                 Margin="0,80,0,0"
-                Aspect="Fill"
-                HeightRequest="1000"/>
+                Aspect="Fill"/>
       </HorizontalStackLayout>
 
 
-
-      <HorizontalStackLayout x:Name="quartaimg">
-         <Image Source="chaolaranja.png"
+      <HorizontalStackLayout x:Name="HsLayer4Chao">
+         <Image Source="chaoo.png"
                 Aspect="Fill"
-                VerticalOptions="End"
-                HeightRequest="100"/>
-         <Image Source="chaolaranja.png"
+                VerticalOptions="Center"/>
+         <Image Source="chaoo.png"
                 Aspect="Fill"
-                VerticalOptions="End"
-                HeightRequest="100"/>
-         <Image Source="chaolaranja.png"
+                VerticalOptions="Center"/>
+         <Image Source="chaoo.png"
                 Aspect="Fill"
-                VerticalOptions="End"
-                HeightRequest="100"/>
+                VerticalOptions="Center"/>
       </HorizontalStackLayout>
 
-      <Image x:Name="raposinha"
-             Source="raposa.png"
-             HeightRequest="200"
-             WidthRequest="200"
-             VerticalOptions="End"
-             HorizontalOptions="Start"
-             Margin="0,0,0,55"/>
+ <ffimageloading:CachedImageView x:Name="persona"
+                                 CacheType ="All"
+                                 CacheDuration="365"
+                                 Source="saitama01.png"
+                                 HeightRequest="250"
+                                 VerticalOptions="End"
+                                 HorizontalOptions="Start"
+                                 Margin="0,0,0,125"/>
    </Grid>
+
+
 </ContentPage>
