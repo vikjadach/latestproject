@@ -1,110 +1,168 @@
-﻿using FFImageLoading.Maui;
-namespace Dino;
+﻿using Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;
+
+namespace latestproject;
 
 public partial class MainPage : ContentPage
 {
-//____________________________________________________________________________________________________________________________________	
-
-	bool EstaMorto = false;
-	bool pulo = false;
-    bool EstaNoChao = true;
-	bool EstaNoAr = false;
-	bool EstaPulando = false;
-//____________________________________________________________________________________________________________________________________	
-	int velocidade1 = 0;
-	int velocidade2 = 0;
-	int velocidade3 = 0;
-	int velocidade = 0;
-	int LarguraJanela = 0;
-	int AlturaJanela = 0;
-//-------------------
-	Player player;
-//____________________________________________________________________________________________________________________________________
-	int TempoPulando = 0;
-	int TempoNoAr = 0;
-	const int ForcaPulo = 12;
-	const int maxTempoPulando = 10;
-	const int maxTempoNoAr = 4;
-	const int ForcaGravidade = 6;
-	const int TempoEntreFrames = 29;
-
-//____________________________________________________________________________________________________________________________________
+	//Player player;
+	Inimigos inimigos;
 
 	public MainPage()
 	{
 		InitializeComponent();
-		player = new Player(persona);
-		player.Run();
-	}
-	protected override void OnSizeAllocated(double width, double height)
-	{
-		base.OnSizeAllocated(width, height);
-		CorrigeTamanhoCenario(width, height);
-		CalculaVelocidade(width);
-	}
-	void CalculaVelocidade(double width)
-	{
-		velocidade1 = (int)(width * 0.001);
-		velocidade2 = (int)(width * 0.004);
-		velocidade3 = (int)(width * 0.008);
-		velocidade = (int)(width * 0.01);
-	}
-	void CorrigeTamanhoCenario(double width, double height)
-	{
-		foreach (var ceu in HsLayer1.Children)
-			(ceu as Image).WidthRequest = width;
-		foreach (var predio in HsLayer2.Children)
-			(predio as Image).WidthRequest = width;
-		foreach (var mato in HsLayer3.Children)
-			(mato as Image).WidthRequest = width;
-		foreach (var chao in HsLayer4Chao.Children)
-			(chao as Image).WidthRequest = width;
-
-		HsLayer1.WidthRequest = width;
-		HsLayer2.WidthRequest = width;
-		HsLayer3.WidthRequest = width;
-		HsLayer4Chao.WidthRequest = width;
+		//player = new Player(lobo);
+		//player.Run();
 	}
 
-	void GerenciaCenarios()
+		bool estamorto = false;
+		bool estaPulando = false;
+		const int temporEntreFrames = 25;
+		int velocidade1 = 0;
+		int velocidade2 = 0;
+		int velocidade3 = 0;
+		int velocidade = 0;
+		int larguraJanela = 0;
+		int alturaJanela = 0;
+		const int forcaGravidade = 6;
+		bool estaNoChao = true;
+		bool estaNoAr = false;
+		int tempoPulando = 0;
+		int tempoNoAr = 0;
+		const int forcaPulo = 8;
+		const int maxTempoPulando = 6;
+		const int maxTempoAr = 4;
+		
+
+	void AplicaPulo()
 	{
-		MoveCenarios();
-		GerenciaCenarios(HsLayer1);
-		GerenciaCenarios(HsLayer2);
-		GerenciaCenarios(HsLayer3);
-		GerenciaCenarios(HsLayer4Chao);
+	estaNoChao=false;
+	if(estaPulando && tempoPulando >= maxTempoPulando)
+	{
+		estaPulando=false;
+		estaNoAr=true;
+		tempoNoAr=0;
+	}
+	else if( estaNoAr && tempoNoAr >= maxTempoAr)
+	{
+		estaPulando=false;
+		estaNoAr=false;
+		tempoPulando=0;
+		tempoNoAr=0;
+	}
+	else if(estaPulando && tempoPulando < maxTempoPulando)
+	{
+		player.MoveY (-forcaPulo);
+		tempoPulando++;
+	}
+	else if (estaNoAr)
+			tempoNoAr++;
+	}
+		void OnGridTapped(object o, TappedEventArgs a)
+		{
+			if (estaNoChao)
+				estaPulando = true;
+		}
+
+
+
+	void AplicaGravidade()
+	{
+		if
+		(player.GetY()<0)
+			player.MoveY(forcaGravidade);
+
+			else if
+			(player.GetY() >= 0)
+			
+				player.SetY(0);
+				estaNoChao = true;
+			
+	}
+	protected override void OnSizeAllocated(double  w, double h)
+	{
+		base.OnSizeAllocated(w, h);
+		CorrigeTamanhoCenario(w, h);
+		CalculaVelocidade(w);
+		inimigos = new Inimigos(-w);
+		inimigos.Add(new Inimigo(inimigo1));
+		inimigos.Add(new Inimigo(inimigo2));
+		inimigos.Add(new Inimigo(inimigo3));
+		inimigos.Add(new Inimigo(inimigo4));
 	}
 
-	void MoveCenarios()
+	void CalculaVelocidade(double w)
 	{
-		HsLayer1.TranslationX -= velocidade1;
-		HsLayer2.TranslationX -= velocidade2;
-		HsLayer3.TranslationX -= velocidade3;
-		HsLayer4Chao.TranslationX -= velocidade;
+		velocidade1 = (int)(w * 0.001);
+		velocidade2 = (int)(w * 0.004);
+		velocidade3 = (int)(w * 0.008);
+		velocidade 	= (int)(w * 0.01);
 	}
-	void GerenciaCenarios(HorizontalStackLayout HSL)
+
+	void CorrigeTamanhoCenario(double w, double h)
+	{
+		foreach (var A in primeiraimg.Children)
+			(A as Image).WidthRequest = w;
+		
+		foreach (var A in segundaimg.Children)
+			(A as Image).WidthRequest = w;
+
+		foreach (var A in terceiraimg.Children)
+			(A as Image).WidthRequest = w;
+		
+		foreach(var A in quartaimg.Children)
+			(A as Image).WidthRequest = w;
+
+		primeiraimg.WidthRequest = w;
+		segundaimg.WidthRequest = w;
+		terceiraimg.WidthRequest = w;
+		quartaimg.WidthRequest = w; 
+	}
+
+	void GerenciaCenario()
+	{
+		MoveCenario();
+		GerenciaCenario(primeiraimg);
+		GerenciaCenario(segundaimg);
+		GerenciaCenario(terceiraimg);
+		GerenciaCenario(quartaimg);
+	}
+
+	void MoveCenario()
+	{
+		primeiraimg.TranslationX -= velocidade1;
+		segundaimg.TranslationX -= velocidade2;
+		terceiraimg.TranslationX -= velocidade3;
+		quartaimg.TranslationX -= velocidade;
+	}
+
+	void GerenciaCenario(HorizontalStackLayout HSL)
 	{
 		var view = (HSL.Children.First() as Image);
-		if (view.WidthRequest + HSL.TranslationX < 0)
-		{
-			HSL.Children.Remove(view);
-			HSL.Children.Add(view);
-			HSL.TranslationX = view.TranslationX;
-		}
+		if(view.WidthRequest + HSL.TranslationX < 0)
+			{
+				HSL.Children.Remove(view);
+				HSL.Children.Add(view);
+				HSL.TranslationX = view.TranslationX;
+			}
 	}
-async Task Desenha()
-	{ 
-		while (!EstaMorto)
+
+
+	async Task Desenha()
+	{
+		while(!estamorto)
 		{
-			     GerenciaCenarios();
-			if (!EstaPulando && !EstaNoAr)
+			GerenciaCenario();
+
+			if(inimigos!= null)
+				inimigos.Desenha(velocidade);
+
+			if(!estaPulando && !estaNoAr)
 			{
 				AplicaGravidade();
 				player.Desenha();
 			}
-			else
-				AplicaPulo();
-			await Task.Delay(TempoEntreFrames);
+		 else 
+		 await Task.Delay(temporEntreFrames);
 		}
 	}
 	protected override void OnAppearing()
@@ -112,43 +170,14 @@ async Task Desenha()
 		base.OnAppearing();
 		Desenha();
 	}
-	void AplicaPulo()
+
+	void Pulo(object o, TappedEventArgs a)
 	{
-		EstaNoChao = false;
-		if (EstaPulando && TempoPulando >= maxTempoPulando)
+		if(estaNoChao)
 		{
-			EstaPulando = false;
-			EstaNoAr = true;
-			TempoNoAr = 0;
-		}
-		else if (EstaNoAr && TempoNoAr >= maxTempoNoAr)
-		{
-			EstaPulando = false;
-			EstaNoAr = false;
-			TempoPulando = 0;
-			TempoNoAr = 0;
-		}
-		else if (EstaPulando && TempoPulando < maxTempoPulando)
-		{
-			player.MoveY(-ForcaPulo);
-			TempoPulando++;
-		}
-		else if (EstaNoAr)
-			TempoNoAr++;
-	}
-	void OnGridTapped(object o, TappedEventArgs a)
-	{
-		if (EstaNoChao)
-			EstaPulando = true;
-	}
-	void AplicaGravidade()
-	{
-		if (player.GetY() < 0)
-			player.MoveY(ForcaGravidade);
-		else if (player.GetY() >= 0)
-		{
-			player.SetY(0);
-			EstaNoChao = true;
+			estaPulando	= true;
 		}
 	}
+	
+
 }

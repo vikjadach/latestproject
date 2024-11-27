@@ -2,65 +2,124 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="latestproject.MainPage"
-             Shell.NavBarIsVisible="false">
+             Shell.NavBarIsVisible="false"
+              xmlns:ff="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui">
 
 
-<Grid>
-    <Grid.GestureRecognizers>
-                     <TapGestureRecognizer Tapped="OnGridTapped"/>
-     </Grid.GestureRecognizers>
+   <Grid>
+      <HorizontalStackLayout x:Name="primeiraimg">
+         <Image Source="primeiraimg.png"
+                Aspect="Fill"/>
 
-      <HorizontalStackLayout x:Name="HsLayer1">
-         <Image Source="ceu.png"
+         <Image Source="primeiraimg.png"
                 Aspect="Fill"/>
-         <Image Source="ceu.png"
+
+         <Image Source="primeiraimg.png"
                 Aspect="Fill"/>
-         <Image Source="ceu.png"
-                Aspect="Fill"/>
+
       </HorizontalStackLayout>
 
-      <HorizontalStackLayout x:Name="HsLayer2">
-         <Image Source="momt.png"
-                Aspect="Fill"/> 
-         <Image Source="momt.png"
+      <HorizontalStackLayout x:Name="segundaimg">
+         <Image Source="segunda.png"
                 Aspect="Fill"/>
-         <Image Source="momt.png"
+
+         <Image Source="segunda.png"
                 Aspect="Fill"/>
+
+         <Image Source="segunda.png"
+                Aspect="Fill"/>
+
       </HorizontalStackLayout>
 
-      <HorizontalStackLayout x:Name="HsLayer3">
-         <Image Source="aro.png"    
+      <HorizontalStackLayout x:Name="terceiraimg">
+         <Image Source="terceiraimg.png"    
                 Margin="0,80,0,0"
-                Aspect="Fill"/>
-         <Image Source="aro.png"            
+                Aspect="Fill"
+                HeightRequest="1000"/>
+
+         <Image Source="terceiraimg.png"            
                 Margin="0,80,30,0"
-                Aspect="Fill"/>
-         <Image Source="aro.png"               
+                Aspect="Fill"
+                HeightRequest="1000"/>
+
+         <Image Source="terceiraimg.png"               
                 Margin="0,80,0,0"
-                Aspect="Fill"/>
+                Aspect="Fill"
+                HeightRequest="1000"/>
       </HorizontalStackLayout>
 
 
-      <HorizontalStackLayout x:Name="HsLayer4Chao">
-         <Image Source="chaoo.png"
+
+      <HorizontalStackLayout x:Name="quartaimg">
+         <Image Source="quartaimg.png"
                 Aspect="Fill"
-                VerticalOptions="Center"/>
-         <Image Source="chaoo.png"
+                VerticalOptions="End"
+                HeightRequest="100"/>
+         <Image Source="quartaimg.png"
                 Aspect="Fill"
-                VerticalOptions="Center"/>
-         <Image Source="chaoo.png"
+                VerticalOptions="End"
+                HeightRequest="100"/>
+         <Image Source="quartaimg.png"
                 Aspect="Fill"
-                VerticalOptions="Center"/>
+                VerticalOptions="End"
+                HeightRequest="100"/>
       </HorizontalStackLayout>
 
-                            <Image              
-                               
-                                 Source="saitama01.png"
-                                 HeightRequest="250"
-                                 VerticalOptions="End"
-                                 HorizontalOptions="Start"
-                                 Margin="0,0,0,125"/>
+       <HorizontalStackLayout x:Name="quintaimg">
+         <Image Source="quintaimg.png"
+                Aspect="Fill"
+                VerticalOptions="End"
+                HeightRequest="100"/>
+         <Image Source="quintaimg.png"
+                Aspect="Fill"
+                VerticalOptions="End"
+                HeightRequest="100"/>
+         <Image Source="quintaimg.png"
+                Aspect="Fill"
+                VerticalOptions="End"
+                HeightRequest="100"/>
+      </HorizontalStackLayout>
+
+      <ff:CachedImageView x:Name="raposinha"
+             Source="raposinha.png"
+             HeightRequest="200"
+             WidthRequest="200"
+             VerticalOptions="End"
+             HorizontalOptions="Start"
+             Margin="0,0,0,55"/>
+
+       <Image x:Name="inimigoum"
+              Source="inimigoum.png"
+              HeightRequest="200"
+              WidthRequest="200"
+              VerticalOptions="End"
+              HorizontalOptions="End"
+              Margin="0,0,0,55"/>
+
+       <Image x:Name="inimigodois"
+              Source="inimigodois.png"
+              HeightRequest="200"
+              WidthRequest="200"
+              VerticalOptions="End"
+              HorizontalOptions="End"
+              Margin="0,0,0,55"/>
+
+       <Image x:Name="inimigo3"
+              Source="inimigo3.png"
+              HeightRequest="200"
+              WidthRequest="200"
+              VerticalOptions="End"
+              HorizontalOptions="End"
+              Margin="0,0,0,55"/>
+
+       <Image x:Name="inimigo4"
+              Source="inimigo4.png"
+              HeightRequest="200"
+              WidthRequest="200"
+              VerticalOptions="End"
+              HorizontalOptions="End"
+              Margin="0,0,0,55"/>
+
+
    </Grid>
-
-
 </ContentPage>
